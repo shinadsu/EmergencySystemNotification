@@ -35,6 +35,7 @@ namespace EmergencySystemNotification.src
 				{
 					Text = message
 				};
+				
 
 				using ( var smtpClient = new SmtpClient() )
 				{
@@ -58,6 +59,10 @@ namespace EmergencySystemNotification.src
 				}
 
 			}
+
+
+
+			
 			return Task.FromResult( true );
 		}
 
