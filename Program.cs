@@ -18,10 +18,10 @@ namespace Program
 		private static async Task Main(string[] args)
 		{
 			// Initialize notification system
-			var notifySystem		= new NotifySystem("MESSAGE");
+			var notifySystem = new NotifySystem("MESSAGE");
 
 			// Configure database context options
-			var dbContextOptions	= new DbContextOptionsBuilder<DataContext>()
+			var dbContextOptions = new DbContextOptionsBuilder<DataContext>()
 				.UseSqlServer("YOUR_CONNECTION_STRING_OR_CONFIG_FROM_JSON")
 				.Options;
 
@@ -29,7 +29,7 @@ namespace Program
 			await UpdateUserListAsync( dbContextOptions );
 
 			// Initialize mail notification service
-			var mailNotify			= new MailNotify(EmailRecipients);
+			var mailNotify = new MailNotify(EmailRecipients);
 
 			// Subscribe to notifications
 			notifySystem.notify += async msg =>
@@ -54,9 +54,9 @@ namespace Program
 				throw new ArgumentNullException( nameof( options ) );
 			}
 
-			using var context	= new DataContext(options);
-			var userRepository	= new UserRepository(context);
-			var users			= await userRepository.GET();
+			using var context = new DataContext(options);
+			var userRepository = new UserRepository(context);
+			var users = await userRepository.GET();
 
 			EmailRecipients.Clear();
 			EmailRecipients.AddRange( users.Select( user => user.Email ) );
