@@ -1,0 +1,16 @@
+name: notify.events message
+on: [push]
+jobs:
+  notify:
+    name: Notify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: send custom message
+        uses: notify-events/github-action@main
+        with:
+          token: ye3slo527veyz3vn-zbdct-r2rig3g-j
+          title: Успешная сборка
+          text: Это сообщение отправлено автоматически из GitHub Actions
+          priority: normal
+          level: info
