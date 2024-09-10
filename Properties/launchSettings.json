@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EmergencySystemNotification": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
