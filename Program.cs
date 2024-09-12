@@ -11,7 +11,10 @@ namespace Program
 {
 	class Program
 	{
-		private static readonly List<string> EmailRecipients = new List<string>();
+		
+	private static readonly List<string> EmailRecipients = new List<string>();
+
+	// скрипт апдейта листа адресов
         private static async Task UpdateEmails(DbContextOptions<DataContext> options)
         {
             if (options == null)
@@ -27,6 +30,7 @@ namespace Program
             EmailRecipients.AddRange(users.Select(user => user.Email));
         }
 
+	// таска на отправку уведомления на почту
         private async static Task loadProcess()
         {
             var notifySystem = new NotifySystem("MESSAGE");
@@ -48,7 +52,7 @@ namespace Program
 
         private static async Task Main(string[] args)
 		{
-			// Configure database context options
+			// создаем переменную опций
 			var dbContextOptions = new DbContextOptionsBuilder<DataContext>()
 				.UseSqlServer("YOUR_CONNECTION_STRING_OR_CONFIG_FROM_JSON")
 				.Options;
